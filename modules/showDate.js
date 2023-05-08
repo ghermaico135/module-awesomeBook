@@ -3,9 +3,13 @@ import { DateTime } from './lexon.js';
 const showDate = () => {
   const now = DateTime.now();
   let content = '';
+  const customDateFormat = {
+    ...DateTime.DATE_FULL,
+    ...DateTime.TIME_WITH_SECONDS,
+  };
   content += `
-<div id="current-date" class="p-2 float-end">
-<h3 class="text-dark">${now}</h3>
+<div id="current-date" class="px-2 float-end">
+${now.toLocaleString(customDateFormat)}
 </div>
 `;
   return content;
